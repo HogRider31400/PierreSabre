@@ -4,8 +4,6 @@ public class Humain {
 	private String nom;
 	private String boisson;
 	private int argent;
-	private String[] biens = new String[1000];
-	private int nb_biens = 0;
 	
 	public Humain(String nom,String boisson,int argent) {
 		// TODO Auto-generated constructor stub
@@ -56,7 +54,6 @@ public class Humain {
 	public void acheter(String bien, int prix) {
 		if(prix <= argent) {
 			parler("J'ai "+argent+" sous en poche. Je vais pouvoir m'acheter "+bien+" à "+prix+" sous");
-			biens[nb_biens++] = bien;
 			perdreArgent(prix);
 		}
 		else {
