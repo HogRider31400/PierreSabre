@@ -16,15 +16,17 @@ public class HistoireTP4 {
 		
 //		Commerçant victime = new Commerçant("Marco",15);
 		
-//		Yakuza yaku = new Yakuza("Yaku Le Noir","whisky",30,"Warsong");
+		Yakuza yaku = new Yakuza("Yaku Le Noir","whisky",30,"Warsong");
 //		yaku.direBonjour();
 //		yaku.extorquer(victime);
 		
-		Commerçant b = new Commerçant("Marco",15);
+//		Commerçant b = new Commerçant("Marco",15);
 		Ronin roro = new Ronin("Roro","shochu",60);
-		roro.direBonjour();
-		roro.donner(b);
-	
+//		roro.direBonjour();
+//		roro.donner(b);
+//		
+		roro.parler("Je t'ai retrouvé vermine , tu vas payer pour ce que tu as fait à ce marchand");
+		roro.provoquer(yaku);
 		
 	}
 }
