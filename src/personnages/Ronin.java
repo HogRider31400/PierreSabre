@@ -27,7 +27,7 @@ public class Ronin extends Humain {
 		else {
 			parler("J'ai perdu contre ce yakuza");
 			adversaire.gagner(getArgent());
-			setArgent(0);
+			
 			honneur -= 1;
 		}
 	}
