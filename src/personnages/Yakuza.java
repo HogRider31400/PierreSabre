@@ -8,6 +8,14 @@ public class Yakuza extends Humain {
 		this.clan = clan;
 	}
 	
+	
+	 @Override
+	 public void direBonjour() {
+		 super.direBonjour();
+		 this.parler("Mon clan est celui de "+clan);
+		 
+	 }
+	
 	public int getReputation() {return reputation;}
 	
 	public void extorquer(Commercant victime) {
@@ -21,7 +29,7 @@ public class Yakuza extends Humain {
 	int perdre() {
 		parler("J'ai perdu mon duel et mes "+getArgent()+" sous, snif... J'ai déshonoré le clan "+clan+".");
 		int a = getArgent();
-		setArgent(0);
+		perdreArgent(a);
 		reputation -= 1;
 		return a;
 	}
