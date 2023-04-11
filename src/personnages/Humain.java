@@ -2,53 +2,75 @@ package personnages;
 
 public class Humain {
 	private String nom;
-	private String boisson;
+	private String boissonFavorite;
 	private int argent;
+	private Humain[] memoire = new Humain[30];
+	protected int nbConnaissance  = 0;
+	
+	
 	
 	public Humain(String nom,String boisson,int argent) {
 		// TODO Auto-generated constructor stub
 		this.nom = nom;
 		this.argent = argent;
-		this.boisson = boisson;
+		this.boissonFavorite = boisson;
 	}
 
+	public void faireConnaissanceAvec(Humain humain) {
+		this.direBonjour();
+		humain.repondre(this);
+		this.memoriser(humain);
+	}
+	
+	private void memoriser(Humain humain) {
+		memoire[nbConnaissance%30] = humain;
+		nbConnaissance++;
+	}
+	
+	private void repondre(Humain humain) {
+		this.direBonjour();
+		this.memoriser(humain);
+	}
+	
+	public void listerConnaissance() {
+		int nb = 30;
+		if (nbConnaissance < 30) nb = nbConnaissance;
+		String s = "";
+		for(int i = 0; i < nb;i++) {
+			s += memoire[i].getNom();
+			if(i != nb-1)
+				s += ",";
+		}
+		this.parler("Je connais beaucoup de monde dont : " + s);
+	}
 	public String getNom() {
 		return nom;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
 	public String getBoisson() {
-		return boisson;
+		return boissonFavorite;
 	}
-
-	public void setBoisson(String boisson) {
-		this.boisson = boisson;
-	}
-
 	public int getArgent() {
 		return argent;
 	}
 
-	public void setArgent(int argent) {
+	private void setArgent(int argent) {
 		this.argent = argent;
 	}
 	
 	
-	public void gagnerArgent(int gain) {
+	protected void gagnerArgent(int gain) {
 		setArgent(getArgent() + gain);
 	}
-	public void perdreArgent(int perte) {
+	protected void perdreArgent(int perte) {
 		setArgent(getArgent() - perte);
 	}
 	
 	public void direBonjour() {
-		parler("Bonjour ! Je m'appelle "+nom+" et j'aime boire du "+boisson);
+		parler("Bonjour ! Je m'appelle "+nom+" et j'aime boire du "+boissonFavorite);
 	}
 	public void boire() {
-		parler("Mmmmm, un bon verre de "+boisson+" ! GLOUPS !");
+		parler("Mmmmm, un bon verre de "+boissonFavorite+" ! GLOUPS !");
 	}
 	
 	public void acheter(String bien, int prix) {
@@ -61,7 +83,7 @@ public class Humain {
 		}
 	}
 	
-	public void parler(String texte) {
+	protected void parler(String texte) {
 		System.out.println(nom + " : " + texte + " ");
 	}
 

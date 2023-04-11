@@ -8,7 +8,7 @@ public class Ronin extends Humain {
 		super(nom,boisson,argent);
 	}
 	
-	public void donner(Commerçant b) {
+	public void donner(Commercant b) {
 		int perdu = (int) Math.round(getArgent()*0.1);
 		
 		perdreArgent(perdu);

@@ -10,7 +10,7 @@ public class Yakuza extends Humain {
 	
 	public int getReputation() {return reputation;}
 	
-	public void extorquer(Commerçant victime) {
+	public void extorquer(Commercant victime) {
 		parler("Tiens, tiens , ne serait-ce pas un faible marchand qui passe par là ?");
 		parler(victime.getNom()+", si tu tiens à ta vie donne moi ta bourse !");
 		int piquer = victime.seFaireExtorquer();
@@ -19,7 +19,7 @@ public class Yakuza extends Humain {
 	}
 	
 	int perdre() {
-		parler("J'ai perdu mon duel et mes "+getArgent()+" sous,snif... J'ai déshonoré le clan "+clan+".");
+		parler("J'ai perdu mon duel et mes "+getArgent()+" sous, snif... J'ai déshonoré le clan "+clan+".");
 		int a = getArgent();
 		setArgent(0);
 		reputation -= 1;
