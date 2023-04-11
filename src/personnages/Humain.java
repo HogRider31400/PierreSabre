@@ -4,7 +4,7 @@ public class Humain {
 	private String nom;
 	private String boissonFavorite;
 	private int argent;
-	private Humain[] memoire = new Humain[30];
+	protected Humain[] memoire = new Humain[30];
 	protected int nbConnaissance  = 0;
 	
 	
@@ -22,7 +22,7 @@ public class Humain {
 		this.memoriser(humain);
 	}
 	
-	private void memoriser(Humain humain) {
+	protected void memoriser(Humain humain) {
 		memoire[nbConnaissance%30] = humain;
 		nbConnaissance++;
 	}
